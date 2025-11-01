@@ -10,7 +10,7 @@ ENV MSSQL_PID=Express
 USER root
 
 # Create and set permissions on the data directory
-RUN mkdir -p /var/opt/mssql && chown -R mssql:mssql /var/opt/mssql
+RUN mkdir -p /var/opt/mssql && chmod -R 777 /var/opt/mssql
 
 # Expose SQL Server port
 EXPOSE 1433
