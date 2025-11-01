@@ -12,9 +12,6 @@ USER root
 # Create and set permissions on the data directory
 RUN mkdir -p /var/opt/mssql && chown -R mssql:mssql /var/opt/mssql
 
-# Switch back to mssql user
-USER mssql
-
 # Expose SQL Server port
 EXPOSE 1433
 
