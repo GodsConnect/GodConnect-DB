@@ -6,6 +6,15 @@ ENV ACCEPT_EULA=Y
 ENV MSSQL_SA_PASSWORD=godconnect
 ENV MSSQL_PID=Express
 
+# Switch to root user to fix permissions
+USER root
+
+# Create and set permissions on the data directory
+RUN mkdir -p /var/opt/mssql && chown -R mssql:mssql /var/opt/mssql
+
+# Switch back to mssql user
+USER mssql
+
 # Expose SQL Server port
 EXPOSE 1433
 
