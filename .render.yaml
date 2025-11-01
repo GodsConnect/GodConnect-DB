@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mssql-server
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: ACCEPT_EULA
+        value: 'Y'
+      - key: MSSQL_SA_PASSWORD
+        value: 'godconnect'
+      - key: MSSQL_PID
+        value: 'Express'
+    ports:
+      - 1433
